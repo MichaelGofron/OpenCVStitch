@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="N6x-nb-J6y">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -22,7 +21,7 @@
                                 <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L2K-eh-APF">
-                                <rect key="frame" x="0.0" y="63" width="340" height="505"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="2" id="nZG-j0-W7O"/>
@@ -31,10 +30,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="L2K-eh-APF" firstAttribute="leading" secondItem="3" secondAttribute="leading" id="6sq-96-5qW"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="L2K-eh-APF" secondAttribute="trailing" constant="-36" id="7W6-no-moR"/>
-                            <constraint firstItem="L2K-eh-APF" firstAttribute="bottom" secondItem="abp-c4-npc" secondAttribute="top" id="Tx2-JZ-DpL"/>
-                            <constraint firstItem="L2K-eh-APF" firstAttribute="top" secondItem="3" secondAttribute="topMargin" constant="63" id="bRm-Ry-aLo"/>
+                            <constraint firstItem="L2K-eh-APF" firstAttribute="leading" secondItem="3" secondAttribute="leading" id="9LC-x5-BUu"/>
+                            <constraint firstItem="L2K-eh-APF" firstAttribute="bottom" secondItem="abp-c4-npc" secondAttribute="top" id="d4X-U5-af2"/>
+                            <constraint firstAttribute="trailing" secondItem="L2K-eh-APF" secondAttribute="trailing" id="owW-8V-rJy"/>
+                            <constraint firstItem="L2K-eh-APF" firstAttribute="top" secondItem="HGZ-lG-ZgF" secondAttribute="bottom" id="pw7-10-wjK"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="reG-FU-EQL">
@@ -173,7 +172,7 @@
         <!--Navigation Controller-->
         <scene sceneID="cUR-qc-Mgn">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7fr-KU-Kdt" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="CVNavigation" automaticallyAdjustsScrollViewInsets="NO" id="7fr-KU-Kdt" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="13W-KG-VAF"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ji0-rp-Le5">

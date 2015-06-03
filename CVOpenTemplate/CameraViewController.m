@@ -114,7 +114,7 @@
     
     // Instantiate nav controller which segues to CV View Controller (stitched Image display)
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil]; // must assume only IPhone
-    CVViewController *CVController = (CVViewController *)[storyboard instantiateViewControllerWithIdentifier:@"CVView"];
+    CVViewController *CVController = (CVViewController *)[storyboard instantiateViewControllerWithIdentifier:@"CVNavigation"];
     [self.PickerController presentViewController:CVController animated:YES completion:nil];
 }
 
@@ -141,6 +141,8 @@
     UIImageWriteToSavedPhotosAlbum(pickedImage, nil, nil, nil);
 }
 
+// Photo must now not go to photo album but instead local memory for app
+// then reference those photos in image stitching section in CVViewController stitch method
 -(void)shootPicture{
     if (debug==1) {NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));}
     [self.PickerController takePicture];
