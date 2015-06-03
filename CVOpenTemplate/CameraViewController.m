@@ -96,22 +96,6 @@
     return main_overlay_view;
 }
 
--(void)presentRustlesTVC{
-    // Create the root view controller for the navigation controller
-    // The new view controller configures a Cancel and Done button for the
-    // navigation bar.
-    RustlesTableViewController* rustlesTVC = [[RustlesTableViewController alloc]
-                                              init];
-    
-    // Configure the RecipeAddViewController. In this case, it reports any
-    // changes to a custom delegate object.
-    // rustlesTVC.delegate = self;
-    
-    // Create the navigation controller and present it.
-    //UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rustlesTVC];
-    [self.navigationController presentViewController:rustlesTVC animated:YES completion: nil];
-}
-
 -(void)segueToRustlesTableViewController{
     
     if (debug==1) {NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));}
@@ -122,8 +106,7 @@
     // Instantiate nav controller which segues to table view
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil]; // must assume only IPhone
     RustlesTableViewController *rustlesTVC = (RustlesTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"RustlesNavigation"];
-    //[self performSegueWithIdentifier:@"tableSegue" sender:self];
-    [self.PickerController presentViewController:rustlesTVC animated:NO completion:nil];
+    [self.PickerController presentViewController:rustlesTVC animated:YES completion:nil];
 }
 
 -(void)segueToCVImageController{
@@ -132,12 +115,7 @@
     // Instantiate nav controller which segues to CV View Controller (stitched Image display)
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil]; // must assume only IPhone
     CVViewController *CVController = (CVViewController *)[storyboard instantiateViewControllerWithIdentifier:@"CVView"];
-    [self performSegueWithIdentifier:@"CVSegue" sender:self];
-    [self.PickerController presentViewController:CVController animated:NO completion:nil];
-}
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    UIViewController *destinationVC = (UIViewController *)segue.destinationViewController;
-    [self presentViewController:destinationVC animated:NO completion:nil];
+    [self.PickerController presentViewController:CVController animated:YES completion:nil];
 }
 
 - (void)makeCustomCameraAppear

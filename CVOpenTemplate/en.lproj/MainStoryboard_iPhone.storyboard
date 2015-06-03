@@ -1,32 +1,41 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="N6x-nb-J6y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="N6x-nb-J6y">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="5">
             <objects>
                 <viewController storyboardIdentifier="CVView" id="2" customClass="CVViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HGZ-lG-ZgF"/>
+                        <viewControllerLayoutGuide type="bottom" id="abp-c4-npc"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="L2K-eh-APF">
+                            <activityIndicatorView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="aqF-TT-CSd">
+                                <rect key="frame" x="141" y="266" width="37" height="37"/>
+                                <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L2K-eh-APF">
                                 <rect key="frame" x="0.0" y="63" width="340" height="505"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="2" id="nZG-j0-W7O"/>
                                 </connections>
                             </scrollView>
-                            <activityIndicatorView hidden="YES" contentMode="scaleToFill" hidesWhenStopped="YES" style="whiteLarge" id="aqF-TT-CSd">
-                                <rect key="frame" x="141" y="266" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="L2K-eh-APF" firstAttribute="leading" secondItem="3" secondAttribute="leading" id="6sq-96-5qW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="L2K-eh-APF" secondAttribute="trailing" constant="-36" id="7W6-no-moR"/>
+                            <constraint firstItem="L2K-eh-APF" firstAttribute="bottom" secondItem="abp-c4-npc" secondAttribute="top" id="Tx2-JZ-DpL"/>
+                            <constraint firstItem="L2K-eh-APF" firstAttribute="top" secondItem="3" secondAttribute="topMargin" constant="63" id="bRm-Ry-aLo"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="reG-FU-EQL">
                         <barButtonItem key="leftBarButtonItem" title="Camera" id="n18-Qi-Mlm">
@@ -42,12 +51,16 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2590" y="1156"/>
+            <point key="canvasLocation" x="2620" y="1156"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="7Nd-LA-4th">
             <objects>
                 <viewController storyboardIdentifier="CameraViewController" id="Q77-fM-dHp" customClass="CameraViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TLy-9E-iqP"/>
+                        <viewControllerLayoutGuide type="bottom" id="42r-C4-F5o"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="zu4-7E-huW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -106,21 +119,23 @@
         <scene sceneID="l7f-fh-4u6">
             <objects>
                 <viewController id="v6e-br-glZ" customClass="CVViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UQb-TQ-4rY"/>
+                        <viewControllerLayoutGuide type="bottom" id="XAr-8Q-C80"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="YWS-fH-gks">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="5Nv-sR-PME">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Nv-sR-PME">
                                 <rect key="frame" x="0.0" y="0.0" width="340" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="v6e-br-glZ" id="HGt-QO-STE"/>
                                 </connections>
                             </scrollView>
-                            <activityIndicatorView hidden="YES" contentMode="scaleToFill" hidesWhenStopped="YES" style="whiteLarge" id="13e-pf-Duj">
+                            <activityIndicatorView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="13e-pf-Duj">
                                 <rect key="frame" x="141" y="266" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                         </subviews>
