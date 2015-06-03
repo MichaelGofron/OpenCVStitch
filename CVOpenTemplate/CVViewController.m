@@ -18,9 +18,12 @@
 - (void)viewDidAppear:(BOOL)animated    
 {
     [super viewDidAppear:animated];
+    [self.navigationController.navigationBar setHidden:NO];
     [self stitch];
-   
-
+}
+- (IBAction)segueToCamera:(UIBarButtonItem *)sender {
+    // segue back to original vc
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void) stitch

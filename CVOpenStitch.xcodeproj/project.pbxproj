@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 47;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -36,6 +36,10 @@
 		ABDBFA4F1697DFB3007B3D6E /* UIImage+OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB3B42DF1695C7AE00A78685 /* UIImage+OpenCV.mm */; };
 		ABDBFA691697F20F007B3D6E /* pano_19_16_mid.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ABDBFA631697F20C007B3D6E /* pano_19_16_mid.jpg */; };
 		ABE81AD0169D22F400F37391 /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = ABE81ACF169D22F400F37391 /* README.markdown */; };
+		CE17A3401B0D2DA500FB8433 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE17A33B1B0D2DA500FB8433 /* CameraViewController.m */; };
+		CE17A3411B0D2DA500FB8433 /* CustomImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE17A33C1B0D2DA500FB8433 /* CustomImagePickerController.m */; };
+		CE17A3421B0D2DA500FB8433 /* RustlesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE17A33D1B0D2DA500FB8433 /* RustlesTableViewController.m */; };
+		CE17A3461B0D2F4200FB8433 /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE17A3451B0D2F4200FB8433 /* PhotoCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +80,15 @@
 		ABDBFA401697D9D9007B3D6E /* pano_19_20_lo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pano_19_20_lo.jpg; sourceTree = "<group>"; };
 		ABDBFA631697F20C007B3D6E /* pano_19_16_mid.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pano_19_16_mid.jpg; sourceTree = "<group>"; };
 		ABE81ACF169D22F400F37391 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = SOURCE_ROOT; };
+		CE17A33B1B0D2DA500FB8433 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		CE17A33C1B0D2DA500FB8433 /* CustomImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomImagePickerController.m; sourceTree = "<group>"; };
+		CE17A33D1B0D2DA500FB8433 /* RustlesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RustlesTableViewController.m; sourceTree = "<group>"; };
+		CE17A33E1B0D2DA500FB8433 /* CustomImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomImagePickerController.h; sourceTree = "<group>"; };
+		CE17A33F1B0D2DA500FB8433 /* RustlesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RustlesTableViewController.h; sourceTree = "<group>"; };
+		CE17A3431B0D2F2E00FB8433 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		CE17A3441B0D2F4200FB8433 /* PhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCell.h; sourceTree = "<group>"; };
+		CE17A3451B0D2F4200FB8433 /* PhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCell.m; sourceTree = "<group>"; };
+		CE77D29B1B1F9C6D00699B8B /* CameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +148,7 @@
 		AB3B42631694B64A00A78685 /* CVOpenStitch */ = {
 			isa = PBXGroup;
 			children = (
+				CE17A3391B0D2CB200FB8433 /* RustleViewControllers */,
 				ABDBFA3A1697D8EE007B3D6E /* images */,
 				AB3B42DE1695C7AE00A78685 /* UIImage+OpenCV.h */,
 				AB3B42DF1695C7AE00A78685 /* UIImage+OpenCV.mm */,
@@ -190,6 +204,22 @@
 			name = images1;
 			sourceTree = "<group>";
 		};
+		CE17A3391B0D2CB200FB8433 /* RustleViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CE17A3441B0D2F4200FB8433 /* PhotoCell.h */,
+				CE17A3451B0D2F4200FB8433 /* PhotoCell.m */,
+				CE17A3431B0D2F2E00FB8433 /* Constants.h */,
+				CE77D29B1B1F9C6D00699B8B /* CameraViewController.h */,
+				CE17A33B1B0D2DA500FB8433 /* CameraViewController.m */,
+				CE17A33F1B0D2DA500FB8433 /* RustlesTableViewController.h */,
+				CE17A33D1B0D2DA500FB8433 /* RustlesTableViewController.m */,
+				CE17A33E1B0D2DA500FB8433 /* CustomImagePickerController.h */,
+				CE17A33C1B0D2DA500FB8433 /* CustomImagePickerController.m */,
+			);
+			name = RustleViewControllers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -221,7 +251,7 @@
 				ORGANIZATIONNAME = foundry;
 			};
 			buildConfigurationList = AB3B42531694B64A00A78685 /* Build configuration list for PBXProject "CVOpenStitch" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -266,11 +296,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE17A3411B0D2DA500FB8433 /* CustomImagePickerController.m in Sources */,
 				AB3B426A1694B64B00A78685 /* main.m in Sources */,
 				AB3B426E1694B64B00A78685 /* CVAppDelegate.m in Sources */,
 				AB3B427D1694B64B00A78685 /* CVViewController.m in Sources */,
 				AB3B42951694B7B600A78685 /* CVWrapper.mm in Sources */,
+				CE17A3421B0D2DA500FB8433 /* RustlesTableViewController.m in Sources */,
+				CE17A3461B0D2F4200FB8433 /* PhotoCell.m in Sources */,
 				ABDBFA4F1697DFB3007B3D6E /* UIImage+OpenCV.mm in Sources */,
+				CE17A3401B0D2DA500FB8433 /* CameraViewController.m in Sources */,
 				ABDBFA211697D103007B3D6E /* stitching.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -367,8 +401,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CVOpenTemplate/CVOpenStitch-Prefix.pch";
 				INFOPLIST_FILE = "CVOpenTemplate/CVOpenStitch-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				PRODUCT_NAME = CVOpenStitch;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -383,8 +418,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CVOpenTemplate/CVOpenStitch-Prefix.pch";
 				INFOPLIST_FILE = "CVOpenTemplate/CVOpenStitch-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				PRODUCT_NAME = CVOpenStitch;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
