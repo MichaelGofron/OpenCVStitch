@@ -40,6 +40,8 @@
 		CE17A3411B0D2DA500FB8433 /* CustomImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE17A33C1B0D2DA500FB8433 /* CustomImagePickerController.m */; };
 		CE17A3421B0D2DA500FB8433 /* RustlesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE17A33D1B0D2DA500FB8433 /* RustlesTableViewController.m */; };
 		CE17A3461B0D2F4200FB8433 /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE17A3451B0D2F4200FB8433 /* PhotoCell.m */; };
+		CEF2BD271B20C9E200F0F750 /* Library1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CEF2BD261B20C9E200F0F750 /* Library1.jpg */; };
+		CEF2BD291B20C9F300F0F750 /* Library2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CEF2BD281B20C9F300F0F750 /* Library2.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +91,8 @@
 		CE17A3441B0D2F4200FB8433 /* PhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCell.h; sourceTree = "<group>"; };
 		CE17A3451B0D2F4200FB8433 /* PhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCell.m; sourceTree = "<group>"; };
 		CE77D29B1B1F9C6D00699B8B /* CameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		CEF2BD261B20C9E200F0F750 /* Library1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Library1.jpg; path = CVOpenTemplate/Library1.jpg; sourceTree = "<group>"; };
+		CEF2BD281B20C9F300F0F750 /* Library2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Library2.jpg; path = CVOpenTemplate/Library2.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,8 @@
 		AB3B424E1694B64A00A78685 = {
 			isa = PBXGroup;
 			children = (
+				CEF2BD281B20C9F300F0F750 /* Library2.jpg */,
+				CEF2BD261B20C9E200F0F750 /* Library1.jpg */,
 				ABE81ACF169D22F400F37391 /* README.markdown */,
 				AB3B42631694B64A00A78685 /* CVOpenStitch */,
 				AB3B425C1694B64A00A78685 /* Frameworks */,
@@ -272,6 +278,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEF2BD291B20C9F300F0F750 /* Library2.jpg in Resources */,
+				CEF2BD271B20C9E200F0F750 /* Library1.jpg in Resources */,
 				AB3B42681694B64B00A78685 /* InfoPlist.strings in Resources */,
 				AB3B42701694B64B00A78685 /* Default.png in Resources */,
 				AB3B42721694B64B00A78685 /* Default@2x.png in Resources */,

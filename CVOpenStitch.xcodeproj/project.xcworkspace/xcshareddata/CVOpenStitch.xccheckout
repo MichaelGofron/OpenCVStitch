@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>625C5C37-2457-4C4C-A737-B90901E5A22B</string>
 	<key>IDESourceControlProjectName</key>
-	<string>CVOpenStitch</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>5302EE7960E6FF31B320D499AA06D4531B328B77</key>
 		<string>https://github.com/MichaelGofron/OpenCVStitch.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>CVOpenStitch.xcodeproj</string>
+	<string>CVOpenStitch.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>5302EE7960E6FF31B320D499AA06D4531B328B77</key>

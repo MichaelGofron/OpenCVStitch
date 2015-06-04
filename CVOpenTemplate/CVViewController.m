@@ -31,13 +31,22 @@
     [self.spinner startAnimating];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
+        // default project images
+//        NSArray* imageArray = [NSArray arrayWithObjects:
+//                               [UIImage imageNamed:@"pano_19_16_mid.jpg"]
+//                               ,[UIImage imageNamed:@"pano_19_20_mid.jpg"]
+//                               ,[UIImage imageNamed:@"pano_19_22_mid.jpg"]
+//                               ,[UIImage imageNamed:@"pano_19_25_mid.jpg"]
+//                               , nil];
+        // Tested hardcoded images
+//        NSArray *imageArray = [NSArray arrayWithObjects:
+//                               [UIImage imageNamed:@"Library1.jpg"],
+//                               [UIImage imageNamed:@"Library2.jpg"],
+//                               nil];
         
-        NSArray* imageArray = [NSArray arrayWithObjects:
-                               [UIImage imageNamed:@"pano_19_16_mid.jpg"]
-                               ,[UIImage imageNamed:@"pano_19_20_mid.jpg"]
-                               ,[UIImage imageNamed:@"pano_19_22_mid.jpg"]
-                               ,[UIImage imageNamed:@"pano_19_25_mid.jpg"]
-                               , nil];
+        // Dynamic image acquisition
+        NSArray* arr = @[@0,@1];
+        NSArray* imageArray = [self retrieveAllImagesFromDefaultsWithKeys:(NSMutableArray*)arr];
         UIImage* stitchedImage = [CVWrapper processWithArray:imageArray];
         dispatch_async(dispatch_get_main_queue(), ^{
             
@@ -48,13 +57,42 @@
             self.scrollView.backgroundColor = [UIColor blackColor];
             self.scrollView.contentSize = self.imageView.bounds.size;
             self.scrollView.maximumZoomScale = 4.0;
-            self.scrollView.minimumZoomScale = 0.5;
+            self.scrollView.minimumZoomScale = 0.2;
             self.scrollView.contentOffset = CGPointMake(-(self.scrollView.bounds.size.width-self.imageView.bounds.size.width)/2, -(self.scrollView.bounds.size.height-self.imageView.bounds.size.height)/2);
             NSLog (@"scrollview contentSize %@",NSStringFromCGSize(self.scrollView.contentSize));
             [self.spinner stopAnimating];
             
         });
     });
+}
+
+-(NSMutableArray *)convertPotraitToLandscape:(NSMutableArray *)Images{
+    NSMutableArray *portraitImgs = [[NSMutableArray alloc]init];
+    for (int p = 0; p < Images.count; p++){
+        UIImage* LandscapeImage = Images[p];
+        UIImage* PortraitImage = [[UIImage alloc] initWithCGImage: LandscapeImage.CGImage
+                                                             scale: 1.0
+                                                       orientation: UIImageOrientationLeft];
+        [portraitImgs addObject:PortraitImage];
+    }
+    return portraitImgs;
+}
+
+-(UIImage *)retrieveImageFromDefaultsWithKey:(NSString *)objectKey{
+    NSString *imagePath = [[NSUserDefaults standardUserDefaults] objectForKey:objectKey];
+    UIImage *customImage = [UIImage imageWithContentsOfFile:imagePath];
+    NSLog(@"customImage == %@",customImage);
+    return customImage;
+}
+
+-(NSMutableArray *)retrieveAllImagesFromDefaultsWithKeys:(NSMutableArray *)keys{
+    NSMutableArray* imgs = [[NSMutableArray alloc]init];
+    for (int i = 0; i < keys.count; i++){
+        NSString *key = [NSString stringWithFormat:@"test%d",i];
+        NSLog(@"test%d",i);
+        [imgs addObject:[self retrieveImageFromDefaultsWithKey:key]];
+    }
+    return imgs;
 }
 
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation

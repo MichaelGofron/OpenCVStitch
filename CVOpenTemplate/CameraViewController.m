@@ -22,6 +22,8 @@
 @property CGFloat CenterConst;
 @end
 
+int photoIndx = 0; // global test variable
+
 @implementation CameraViewController
 
 - (void)viewDidLoad {
@@ -47,7 +49,7 @@
     
     // Main overlay view created
     UIView *main_overlay_view = [[UIView alloc] initWithFrame:self.view.bounds];
-
+    
     // Set up Camera Button
     self.HeightOfButtons = 40;
     CGFloat cameraWidth = self.view.frame.size.width/4;
@@ -60,14 +62,14 @@
     clear_view.opaque = NO;
     clear_view.backgroundColor = [UIColor clearColor];
     [main_overlay_view addSubview:clear_view];
-
+    
     
     // Adding Camera Button
     UIButton *cameraButton = [UIButton buttonWithType:UIButtonTypeCustom];
     // when a button is touched, CustomImagePickerController snaps a picture
     [cameraButton addTarget:self action:@selector(shootPicture) forControlEvents:UIControlEventTouchUpInside];
     cameraButton.frame = CGRectMake(cameraX, cameraY, cameraWidth, self.HeightOfButtons);
-        //button.frame = CGRectMake(self.view.frame.size.width / 2, self.view.frame.size.height - self.HeightOfButtons, self.view.frame.size.width / 4, self.HeightOfButtons);
+    //button.frame = CGRectMake(self.view.frame.size.width / 2, self.view.frame.size.height - self.HeightOfButtons, self.view.frame.size.width / 4, self.HeightOfButtons);
     [cameraButton setBackgroundColor:[UIColor redColor]];
     [main_overlay_view addSubview:cameraButton];
     
@@ -137,8 +139,8 @@
     if (debug==1) {NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));}
     
     UIImage *pickedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
-    // Now do something with pickedImage
     UIImageWriteToSavedPhotosAlbum(pickedImage, nil, nil, nil);
+    [self saveImageToDefaults:pickedImage];
 }
 
 // Photo must now not go to photo album but instead local memory for app
@@ -146,6 +148,30 @@
 -(void)shootPicture{
     if (debug==1) {NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));}
     [self.PickerController takePicture];
+}
+
+-(void)saveImageToDefaults:(UIImage *)newImage{
+    NSData *imageData = UIImagePNGRepresentation(newImage);
+    
+    // creates a list of path strings in the specified directory in the specified domains, if tildes they expand
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0]; // first path string
+    
+    NSString *imagePath =[documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg",@"cached"]]; // create path for image by appending strings
+    
+    NSLog((@"pre writing to file"));
+    if (![imageData writeToFile:imagePath atomically:NO]){
+        NSLog((@"Failed to cache image data to disk"));
+    }
+    else{
+        NSLog(@"the cachedImagedPath is %@",imagePath);
+    }
+    
+    NSLog(@"test%d",photoIndx);
+    
+    NSString *imgKey = [NSString stringWithFormat:@"test%d",photoIndx];
+    [[NSUserDefaults standardUserDefaults] setObject:imagePath forKey:imgKey];
+    photoIndx++; // increment photoIndex for next pass
 }
 
 @end
