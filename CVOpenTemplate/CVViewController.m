@@ -32,24 +32,16 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         // default project images
-//        NSArray* imageArray = [NSArray arrayWithObjects:
-//                               [UIImage imageNamed:@"pano_19_16_mid.jpg"]
-//                               ,[UIImage imageNamed:@"pano_19_20_mid.jpg"]
-//                               ,[UIImage imageNamed:@"pano_19_22_mid.jpg"]
-//                               ,[UIImage imageNamed:@"pano_19_25_mid.jpg"]
-//                               , nil];
+        // NSArray *imageArray = [self returnOrigImageArray];
 
         // Tested hardcoded images captured using iphone camera and manually added to resource bundle
-//        NSArray *imageArray = [NSArray arrayWithObjects:
-//                               [UIImage imageNamed:@"Library1.jpg"],
-//                               [UIImage imageNamed:@"Library2.jpg"],
-//                               nil];
+        // NSArray *imageArray = [self returnManuallyAddedImageArray];
         
         // Dynamic image acquisition with only 2 images allowed
         // Must take two images using the red button at camera screen or program will crash if
         // using the below lines for dynamic image stitching
-        NSArray* arr = @[@0,@1];
-        NSArray* imageArray = [self retrieveAllImagesFromDefaultsWithKeys:(NSMutableArray*)arr];
+        NSArray *imageArray = [self returnDynamicallyTakenImageArray];
+        
         UIImage* stitchedImage = [CVWrapper processWithArray:imageArray];
         dispatch_async(dispatch_get_main_queue(), ^{
             
@@ -67,6 +59,30 @@
             
         });
     });
+}
+
+
+// Original image array from foundry's stitching repo
+-(NSArray *)returnOrigImageArray{
+    return [NSArray arrayWithObjects:
+            [UIImage imageNamed:@"pano_19_16_mid.jpg"]
+            ,[UIImage imageNamed:@"pano_19_20_mid.jpg"]
+            ,[UIImage imageNamed:@"pano_19_22_mid.jpg"]
+            ,[UIImage imageNamed:@"pano_19_25_mid.jpg"]
+            , nil];
+}
+
+-(NSArray*)returnManuallyAddedImageArray{
+    return [NSArray arrayWithObjects:
+            [UIImage imageNamed:@"Library1.jpg"],
+            [UIImage imageNamed:@"Library2.jpg"],
+            nil];
+}
+
+-(NSArray*)returnDynamicallyTakenImageArray{
+    NSArray* arr = @[@0,@1];
+    NSArray* imageArray = [self retrieveAllImagesFromDefaultsWithKeys:(NSMutableArray*)arr];
+    return imageArray;
 }
 
 -(NSMutableArray *)convertPotraitToLandscape:(NSMutableArray *)Images{
