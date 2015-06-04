@@ -38,13 +38,16 @@
 //                               ,[UIImage imageNamed:@"pano_19_22_mid.jpg"]
 //                               ,[UIImage imageNamed:@"pano_19_25_mid.jpg"]
 //                               , nil];
-        // Tested hardcoded images
+
+        // Tested hardcoded images captured using iphone camera and manually added to resource bundle
 //        NSArray *imageArray = [NSArray arrayWithObjects:
 //                               [UIImage imageNamed:@"Library1.jpg"],
 //                               [UIImage imageNamed:@"Library2.jpg"],
 //                               nil];
         
-        // Dynamic image acquisition
+        // Dynamic image acquisition with only 2 images allowed
+        // Must take two images using the red button at camera screen or program will crash if
+        // using the below lines for dynamic image stitching
         NSArray* arr = @[@0,@1];
         NSArray* imageArray = [self retrieveAllImagesFromDefaultsWithKeys:(NSMutableArray*)arr];
         UIImage* stitchedImage = [CVWrapper processWithArray:imageArray];
