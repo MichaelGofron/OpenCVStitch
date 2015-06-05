@@ -90,7 +90,7 @@
 }
 
 -(NSArray*)returnDynamicallyTakenImageArray{
-    NSArray* arr = @[@0,@1];
+    NSArray* arr = @[@0,@1,@3,@4];
     NSArray* imageArray = [self retrieveAllImagesFromDefaultsWithKeys:(NSMutableArray*)arr];
     return imageArray;
 }
@@ -109,11 +109,13 @@
 
 -(UIImage *)retrieveImageFromDefaultsWithKey:(NSString *)objectKey{
     NSString *imagePath = [[NSUserDefaults standardUserDefaults] objectForKey:objectKey];
-    UIImage *customImage = [UIImage imageWithContentsOfFile:imagePath];
+    UIImage *customImage = [UIImage imageNamed:imagePath];
+    //UIImage *customImage = [UIImage imageWithContentsOfFile:imagePath];
     NSLog(@"customImage == %@",customImage);
     return customImage;
 }
 
+// keys is a simple placeholder for when refactoring this code to allow more variable ways to stitch images
 -(NSMutableArray *)retrieveAllImagesFromDefaultsWithKeys:(NSMutableArray *)keys{
     NSMutableArray* imgs = [[NSMutableArray alloc]init];
     for (int i = 0; i < keys.count; i++){
