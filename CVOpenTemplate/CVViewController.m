@@ -32,16 +32,19 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         // default project images
+        
         // NSArray *imageArray = [self returnOrigImageArray];
 
         // Tested hardcoded images captured using iphone camera and manually added to resource bundle
-        // NSArray *imageArray = [self returnManuallyAddedImageArray];
+//        NSArray *imageArray = [self returnManuallyAddedImageArray];
         
+//        NSArray *imageArray = [self returnAManuallyAddedImageArray];
         // Dynamic image acquisition with only 2 images allowed
         // Must take two images using the red button at camera screen or program will crash if
         // using the below lines for dynamic image stitching
-        NSArray *imageArray = [self returnDynamicallyTakenImageArray];
         
+        NSArray *imageArray = [self returnDynamicallyTakenImageArray];
+        NSLog(@"imageArray = %@",imageArray);
         UIImage* stitchedImage = [CVWrapper processWithArray:imageArray];
         dispatch_async(dispatch_get_main_queue(), ^{
             
@@ -76,6 +79,13 @@
     return [NSArray arrayWithObjects:
             [UIImage imageNamed:@"Library1.jpg"],
             [UIImage imageNamed:@"Library2.jpg"],
+            nil];
+}
+
+-(NSArray*)returnAManuallyAddedImageArray{
+    return [NSArray arrayWithObjects:
+            [UIImage imageNamed:@"LibraryGirl1.jpg"],
+            [UIImage imageNamed:@"LibraryGirl2.jpg"],
             nil];
 }
 

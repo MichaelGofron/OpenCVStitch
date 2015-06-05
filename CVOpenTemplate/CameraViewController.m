@@ -23,6 +23,7 @@
 @end
 
 int photoIndx = 0; // global test variable
+double compressPhotoTo720From2448 = 0.29411764705882;
 
 @implementation CameraViewController
 
@@ -139,6 +140,7 @@ int photoIndx = 0; // global test variable
     if (debug==1) {NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));}
     
     UIImage *pickedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    pickedImage = [self compressForUpload:pickedImage scale:compressPhotoTo720From2448];
     UIImageWriteToSavedPhotosAlbum(pickedImage, nil, nil, nil);
     [self saveImageToDefaults:pickedImage];
 }
@@ -150,8 +152,23 @@ int photoIndx = 0; // global test variable
     [self.PickerController takePicture];
 }
 
+- (UIImage *)compressForUpload:(UIImage *)original scale:(CGFloat)scale
+{
+    // Calculate new size given scale factor.
+    CGSize originalSize = original.size;
+    CGSize newSize = CGSizeMake(originalSize.width * scale, originalSize.height * scale);
+    
+    // Scale the original image to match the new size.
+    UIGraphicsBeginImageContext(newSize);
+    [original drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage* compressedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return compressedImage;
+}
+
 -(void)saveImageToDefaults:(UIImage *)newImage{
-    NSData *imageData = UIImagePNGRepresentation(newImage);
+    NSData *imageData = UIImageJPEGRepresentation(newImage,1.0); // Used to be PNG
     
     // creates a list of path strings in the specified directory in the specified domains, if tildes they expand
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
