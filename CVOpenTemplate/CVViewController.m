@@ -90,7 +90,7 @@
 }
 
 -(NSArray*)returnDynamicallyTakenImageArray{
-    NSArray* arr = @[@0,@1,@3,@4];
+    NSArray* arr = @[@0,@1];
     NSArray* imageArray = [self retrieveAllImagesFromDefaultsWithKeys:(NSMutableArray*)arr];
     return imageArray;
 }
@@ -109,8 +109,8 @@
 
 -(UIImage *)retrieveImageFromDefaultsWithKey:(NSString *)objectKey{
     NSString *imagePath = [[NSUserDefaults standardUserDefaults] objectForKey:objectKey];
-    UIImage *customImage = [UIImage imageNamed:imagePath];
-    //UIImage *customImage = [UIImage imageWithContentsOfFile:imagePath];
+//    UIImage *customImage = [UIImage imageNamed:imagePath];
+    UIImage *customImage = [UIImage imageWithContentsOfFile:imagePath];
     NSLog(@"customImage == %@",customImage);
     return customImage;
 }
