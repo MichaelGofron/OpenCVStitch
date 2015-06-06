@@ -75,15 +75,15 @@ double compressPhotoTo720From2448 = 0.29411764705882;
     [main_overlay_view addSubview:cameraButton];
     
     // Setup table Button
-    CGFloat tableX = 0;
+//    CGFloat tableX = 0;
     CGFloat tableY = self.view.frame.size.height-self.HeightOfButtons;
     
     // Adding Table Button
-    UIButton *tableButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [tableButton addTarget:self action:@selector(segueToRustlesTableViewController) forControlEvents:UIControlEventTouchUpInside];
-    tableButton.frame = CGRectMake(tableX, tableY, cameraWidth, self.HeightOfButtons);
-    [tableButton setBackgroundColor:[UIColor blueColor]];// Use BackgroundImage later
-    [main_overlay_view addSubview:tableButton];
+//    UIButton *tableButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [tableButton addTarget:self action:@selector(segueToRustlesTableViewController) forControlEvents:UIControlEventTouchUpInside];
+//    tableButton.frame = CGRectMake(tableX, tableY, cameraWidth, self.HeightOfButtons);
+//    [tableButton setBackgroundColor:[UIColor blueColor]];// Use BackgroundImage later
+//    [main_overlay_view addSubview:tableButton];
     
     // Setup panaroma button
     CGFloat panaromaX = self.view.frame.size.width - cameraWidth; // set to some position at far right
@@ -141,7 +141,7 @@ double compressPhotoTo720From2448 = 0.29411764705882;
     
     UIImage *pickedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     pickedImage = [self compressForUpload:pickedImage scale:compressPhotoTo720From2448];
-    UIImageWriteToSavedPhotosAlbum(pickedImage, nil, nil, nil);
+//    UIImageWriteToSavedPhotosAlbum(pickedImage, nil, nil, nil);
     [self saveImageToDefaults:pickedImage];
 }
 
@@ -174,7 +174,9 @@ double compressPhotoTo720From2448 = 0.29411764705882;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0]; // first path string
     
-    NSString *imagePath =[documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg",@"cached"]]; // create path for image by appending strings
+    NSString *imgKey = [NSString stringWithFormat:@"test%d",photoIndx];
+    
+    NSString *imagePath =[documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg",imgKey]]; // create path for image by appending strings
     
     NSLog((@"pre writing to file"));
     if (![imageData writeToFile:imagePath atomically:NO]){
@@ -186,7 +188,6 @@ double compressPhotoTo720From2448 = 0.29411764705882;
     
     NSLog(@"test%d",photoIndx);
     
-    NSString *imgKey = [NSString stringWithFormat:@"test%d",photoIndx];
     [[NSUserDefaults standardUserDefaults] setObject:imagePath forKey:imgKey];
     photoIndx++; // increment photoIndex for next pass
 }
