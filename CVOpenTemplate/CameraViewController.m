@@ -63,7 +63,7 @@ double compressPhotoTo720From2448 = 0.29411764705882;
     
     // Clear view (live camera feed) created and added to main overlay view
     NSLog(@"%f",self.HeightOfButtons);
-    UIView *clear_view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - self.HeightOfButtons)];
+    UIView *clear_view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     clear_view.opaque = NO;
     clear_view.backgroundColor = [UIColor clearColor];
     [main_overlay_view addSubview:clear_view];
@@ -103,10 +103,6 @@ double compressPhotoTo720From2448 = 0.29411764705882;
     [panaromaButton setImage:stitchingBtnImage forState:UIControlStateNormal];
     panaromaButton.frame = CGRectMake(panaromaX, panaromaY, cameraWidth, self.HeightOfButtons);
     [main_overlay_view addSubview:panaromaButton];
-    
-    //    panaromaButton.frame = CGRectMake(panaromaX, panaromaY, cameraWidth, self.HeightOfButtons);
-//    [panaromaButton setBackgroundColor:[UIColor greenColor]];// Use BackgroundImage later
-//    [main_overlay_view addSubview:panaromaButton];
     
     return main_overlay_view;
 }

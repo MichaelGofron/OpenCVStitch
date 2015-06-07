@@ -18,13 +18,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <activityIndicatorView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="aqF-TT-CSd">
-                                <rect key="frame" x="141" y="266" width="37" height="37"/>
-                                <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </activityIndicatorView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L2K-eh-APF">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="AIv-N0-KUV">
+                                        <rect key="frame" x="150" y="242" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="AIv-N0-KUV" secondAttribute="trailing" constant="150" id="FfW-MW-ldm"/>
+                                    <constraint firstItem="AIv-N0-KUV" firstAttribute="top" secondItem="L2K-eh-APF" secondAttribute="top" constant="242" id="SrF-0E-4hV"/>
+                                    <constraint firstItem="AIv-N0-KUV" firstAttribute="leading" secondItem="L2K-eh-APF" secondAttribute="leading" constant="150" id="kSF-jO-IPg"/>
+                                    <constraint firstAttribute="bottom" secondItem="AIv-N0-KUV" secondAttribute="bottom" constant="242" id="w92-bV-3iy"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="2" id="nZG-j0-W7O"/>
                                 </connections>
@@ -47,7 +54,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="scrollView" destination="L2K-eh-APF" id="vnq-im-biC"/>
-                        <outlet property="spinner" destination="aqF-TT-CSd" id="zli-Hi-g3G"/>
+                        <outlet property="spinner" destination="AIv-N0-KUV" id="FNe-4z-AVv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>

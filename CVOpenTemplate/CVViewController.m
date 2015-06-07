@@ -59,13 +59,13 @@
                 self.scrollView.minimumZoomScale = 0.5;
                 self.scrollView.contentOffset = CGPointMake(-(self.scrollView.bounds.size.width-self.imageView.bounds.size.width)/2, -(self.scrollView.bounds.size.height-self.imageView.bounds.size.height)/2);
                 NSLog (@"scrollview contentSize %@",NSStringFromCGSize(self.scrollView.contentSize));
-                [self.spinner stopAnimating];
                 
             });
         }else{
             NSLog(@"Not enough images taken");
-            return;
         }
+        [self.spinner stopAnimating];
+        return;
     });
 }
 
