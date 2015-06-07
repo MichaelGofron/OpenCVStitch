@@ -44,6 +44,7 @@
 		CEF2BD291B20C9F300F0F750 /* Library2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CEF2BD281B20C9F300F0F750 /* Library2.jpg */; };
 		CEF2BD2B1B22010400F0F750 /* LibraryGirl1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CEF2BD2A1B22010400F0F750 /* LibraryGirl1.jpg */; };
 		CEF2BD2D1B22011200F0F750 /* LibraryGirl2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CEF2BD2C1B22011200F0F750 /* LibraryGirl2.jpg */; };
+		CEF2BD311B23603B00F0F750 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF2BD301B23603B00F0F750 /* SettingsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +98,8 @@
 		CEF2BD281B20C9F300F0F750 /* Library2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Library2.jpg; path = CVOpenTemplate/Library2.jpg; sourceTree = "<group>"; };
 		CEF2BD2A1B22010400F0F750 /* LibraryGirl1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = LibraryGirl1.jpg; path = CVOpenTemplate/LibraryGirl1.jpg; sourceTree = "<group>"; };
 		CEF2BD2C1B22011200F0F750 /* LibraryGirl2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = LibraryGirl2.jpg; path = CVOpenTemplate/LibraryGirl2.jpg; sourceTree = "<group>"; };
+		CEF2BD2F1B23603B00F0F750 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		CEF2BD301B23603B00F0F750 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +229,8 @@
 				CE17A33B1B0D2DA500FB8433 /* CameraViewController.m */,
 				CE17A33F1B0D2DA500FB8433 /* RustlesTableViewController.h */,
 				CE17A33D1B0D2DA500FB8433 /* RustlesTableViewController.m */,
+				CEF2BD2F1B23603B00F0F750 /* SettingsViewController.h */,
+				CEF2BD301B23603B00F0F750 /* SettingsViewController.m */,
 				CE17A33E1B0D2DA500FB8433 /* CustomImagePickerController.h */,
 				CE17A33C1B0D2DA500FB8433 /* CustomImagePickerController.m */,
 			);
@@ -320,6 +325,7 @@
 				CE17A3421B0D2DA500FB8433 /* RustlesTableViewController.m in Sources */,
 				CE17A3461B0D2F4200FB8433 /* PhotoCell.m in Sources */,
 				ABDBFA4F1697DFB3007B3D6E /* UIImage+OpenCV.mm in Sources */,
+				CEF2BD311B23603B00F0F750 /* SettingsViewController.m in Sources */,
 				CE17A3401B0D2DA500FB8433 /* CameraViewController.m in Sources */,
 				ABDBFA211697D103007B3D6E /* stitching.cpp in Sources */,
 			);

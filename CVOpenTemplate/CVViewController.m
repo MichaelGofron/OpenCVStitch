@@ -55,7 +55,7 @@
             self.scrollView.backgroundColor = [UIColor blackColor];
             self.scrollView.contentSize = self.imageView.bounds.size;
             self.scrollView.maximumZoomScale = 4.0;
-            self.scrollView.minimumZoomScale = 0.2;
+            self.scrollView.minimumZoomScale = 0.5;
             self.scrollView.contentOffset = CGPointMake(-(self.scrollView.bounds.size.width-self.imageView.bounds.size.width)/2, -(self.scrollView.bounds.size.height-self.imageView.bounds.size.height)/2);
             NSLog (@"scrollview contentSize %@",NSStringFromCGSize(self.scrollView.contentSize));
             [self.spinner stopAnimating];
@@ -90,9 +90,21 @@
 }
 
 -(NSArray*)returnDynamicallyTakenImageArray{
-    NSArray* arr = @[@0,@1,@2,@3,@4,@5,@6,@7,@8];
-    NSArray* imageArray = [self retrieveAllImagesFromDefaultsWithKeys:(NSMutableArray*)arr];
+    NSString* strNumPhotos = [self initializeNumberOfPhotos];
+    int numPhotos = (int)[strNumPhotos integerValue];
+    NSArray* imageArray = [self retrieveAllImagesFromDefaultsWith:numPhotos];
     return imageArray;
+}
+
+// Must account for the fact that previous uses of app could cause user to set the number of photos differently
+-(NSString *)initializeNumberOfPhotos{
+    NSString *strNumPhotos = [[NSUserDefaults standardUserDefaults]objectForKey:@"NumPhotos"];
+    NSLog(@"%@",strNumPhotos);
+    if (!strNumPhotos){ // nothing in user defaults
+        // Set default of 4 photos to stich if there isn't any default defined
+        [[NSUserDefaults standardUserDefaults]setObject:[NSString stringWithFormat:@"%d",4] forKey:@"NumPhotos"];
+    }
+    return [[NSUserDefaults standardUserDefaults]objectForKey:@"NumPhotos"];
 }
 
 -(NSMutableArray *)convertPotraitToLandscape:(NSMutableArray *)Images{
@@ -116,9 +128,9 @@
 }
 
 // keys is a simple placeholder for when refactoring this code to allow more variable ways to stitch images
--(NSMutableArray *)retrieveAllImagesFromDefaultsWithKeys:(NSMutableArray *)keys{
+-(NSMutableArray *)retrieveAllImagesFromDefaultsWith:(int)numPhotos{
     NSMutableArray* imgs = [[NSMutableArray alloc]init];
-    for (int i = 0; i < keys.count; i++){
+    for (int i = 0; i < numPhotos; i++){
         NSString *key = [NSString stringWithFormat:@"test%d",i];
         NSLog(@"test%d",i);
         UIImage *image = [self retrieveImageFromDefaultsWithKey:key];

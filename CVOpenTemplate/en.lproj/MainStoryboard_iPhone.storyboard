@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -71,6 +72,7 @@
                     <connections>
                         <segue destination="djX-uk-sk2" kind="push" identifier="tableSegue" id="iyb-dC-LNa"/>
                         <segue destination="7fr-KU-Kdt" kind="push" identifier="CVSegue" id="aKf-xQ-IRf"/>
+                        <segue destination="GKf-jd-N0V" kind="push" identifier="showSettings" id="vKg-ap-2ab"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dhq-kT-65L" sceneMemberID="firstResponder"/>
@@ -134,6 +136,54 @@
             </objects>
             <point key="canvasLocation" x="2165" y="-151"/>
         </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="LsF-II-7H6">
+            <objects>
+                <viewController storyboardIdentifier="SettingsView" id="GZI-aB-NOT" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WuX-U5-VeM"/>
+                        <viewControllerLayoutGuide type="bottom" id="DYf-Ju-dmc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="r8j-9K-TW3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number Of Photos:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fdv-MJ-cjC">
+                                <rect key="frame" x="86" y="72.5" width="148.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o90-9Q-9Hk">
+                                <rect key="frame" x="0.0" y="101" width="320" height="162"/>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="o90-9Q-9Hk" secondAttribute="trailing" constant="-16" id="1cG-Tc-hOm"/>
+                            <constraint firstItem="o90-9Q-9Hk" firstAttribute="leading" secondItem="r8j-9K-TW3" secondAttribute="leadingMargin" constant="-16" id="5Oa-9y-dMK"/>
+                            <constraint firstItem="o90-9Q-9Hk" firstAttribute="top" secondItem="Fdv-MJ-cjC" secondAttribute="bottom" constant="8" id="Xmf-kD-HQP"/>
+                            <constraint firstItem="DYf-Ju-dmc" firstAttribute="top" secondItem="o90-9Q-9Hk" secondAttribute="bottom" constant="305" id="afe-rQ-F3z"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Fdv-MJ-cjC" secondAttribute="trailing" constant="69.5" id="cFa-zk-IRB"/>
+                            <constraint firstItem="Fdv-MJ-cjC" firstAttribute="top" secondItem="WuX-U5-VeM" secondAttribute="bottom" constant="8.5" id="mhb-yV-bwt"/>
+                            <constraint firstItem="Fdv-MJ-cjC" firstAttribute="leading" secondItem="r8j-9K-TW3" secondAttribute="leadingMargin" constant="70" id="yny-oU-Pcp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="kRU-CK-a6h">
+                        <barButtonItem key="leftBarButtonItem" title="Camera" id="kLF-vS-fDM">
+                            <connections>
+                                <action selector="segueToCamera:" destination="GZI-aB-NOT" id="O0A-zz-TnR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="picker" destination="o90-9Q-9Hk" id="mIN-Wi-YuH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P1r-V9-pJD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2598" y="519"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="cUR-qc-Mgn">
             <objects>
@@ -170,6 +220,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CUN-sD-y5m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1108" y="657"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="nCo-35-GLN">
+            <objects>
+                <navigationController storyboardIdentifier="SettingsNavigation" automaticallyAdjustsScrollViewInsets="NO" id="GKf-jd-N0V" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="5mk-jT-qUj"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8u7-6W-zIB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="GZI-aB-NOT" kind="relationship" relationship="rootViewController" id="YQW-PV-IaF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xFk-TO-SD7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2165" y="519"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

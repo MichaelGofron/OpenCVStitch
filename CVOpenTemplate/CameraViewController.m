@@ -11,6 +11,7 @@
 #import "CustomImagePickerController.h"
 #import "RustlesTableViewController.h"
 #import "Constants.h"
+#import "SettingsViewController.h"
 
 // CV imports
 #import "CVViewController.h"
@@ -75,15 +76,15 @@ double compressPhotoTo720From2448 = 0.29411764705882;
     [main_overlay_view addSubview:cameraButton];
     
     // Setup table Button
-//    CGFloat tableX = 0;
+    CGFloat tableX = 0;
     CGFloat tableY = self.view.frame.size.height-self.HeightOfButtons;
     
     // Adding Table Button
-//    UIButton *tableButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [tableButton addTarget:self action:@selector(segueToRustlesTableViewController) forControlEvents:UIControlEventTouchUpInside];
-//    tableButton.frame = CGRectMake(tableX, tableY, cameraWidth, self.HeightOfButtons);
-//    [tableButton setBackgroundColor:[UIColor blueColor]];// Use BackgroundImage later
-//    [main_overlay_view addSubview:tableButton];
+    UIButton *tableButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [tableButton addTarget:self action:@selector(segueToSettingsViewController) forControlEvents:UIControlEventTouchUpInside];
+    tableButton.frame = CGRectMake(tableX, tableY, cameraWidth, self.HeightOfButtons);
+    [tableButton setBackgroundColor:[UIColor blueColor]];// Use BackgroundImage later
+    [main_overlay_view addSubview:tableButton];
     
     // Setup panaroma button
     CGFloat panaromaX = self.view.frame.size.width - cameraWidth; // set to some position at far right
@@ -102,14 +103,21 @@ double compressPhotoTo720From2448 = 0.29411764705882;
 -(void)segueToRustlesTableViewController{
     
     if (debug==1) {NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));}
-    
-    //RustlesTableViewController* rustlesVC = [[RustlesTableViewController alloc]init];
-    //[self.PickerController presentViewController:rustlesVC animated:NO completion:nil];
-    
+
     // Instantiate nav controller which segues to table view
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil]; // must assume only IPhone
     RustlesTableViewController *rustlesTVC = (RustlesTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"RustlesNavigation"];
     [self.PickerController presentViewController:rustlesTVC animated:YES completion:nil];
+}
+
+-(void)segueToSettingsViewController{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil]; // must assume only IPhone
+    SettingsViewController *settingsVC = (SettingsViewController *)[storyboard instantiateViewControllerWithIdentifier:@"SettingsNavigation"];
+    [self.PickerController presentViewController:settingsVC animated:YES completion:nil];
+}
+
+-(void)logCompleted{
+    NSLog(@"completed");
 }
 
 -(void)segueToCVImageController{
@@ -177,6 +185,7 @@ double compressPhotoTo720From2448 = 0.29411764705882;
     NSString *imgKey = [NSString stringWithFormat:@"test%d",photoIndx];
     
     NSString *imagePath =[documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg",imgKey]]; // create path for image by appending strings
+
     
     NSLog((@"pre writing to file"));
     if (![imageData writeToFile:imagePath atomically:NO]){
