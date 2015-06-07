@@ -45,6 +45,8 @@
 		CEF2BD2B1B22010400F0F750 /* LibraryGirl1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CEF2BD2A1B22010400F0F750 /* LibraryGirl1.jpg */; };
 		CEF2BD2D1B22011200F0F750 /* LibraryGirl2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CEF2BD2C1B22011200F0F750 /* LibraryGirl2.jpg */; };
 		CEF2BD311B23603B00F0F750 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF2BD301B23603B00F0F750 /* SettingsViewController.m */; };
+		CEF2BD351B24D17D00F0F750 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF2BD341B24D17D00F0F750 /* Images.xcassets */; };
+		CEF2BD371B24D4AB00F0F750 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF2BD361B24D4AB00F0F750 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,12 +96,14 @@
 		CE17A3441B0D2F4200FB8433 /* PhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCell.h; sourceTree = "<group>"; };
 		CE17A3451B0D2F4200FB8433 /* PhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCell.m; sourceTree = "<group>"; };
 		CE77D29B1B1F9C6D00699B8B /* CameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
-		CEF2BD261B20C9E200F0F750 /* Library1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Library1.jpg; path = CVOpenTemplate/Library1.jpg; sourceTree = "<group>"; };
-		CEF2BD281B20C9F300F0F750 /* Library2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Library2.jpg; path = CVOpenTemplate/Library2.jpg; sourceTree = "<group>"; };
-		CEF2BD2A1B22010400F0F750 /* LibraryGirl1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = LibraryGirl1.jpg; path = CVOpenTemplate/LibraryGirl1.jpg; sourceTree = "<group>"; };
-		CEF2BD2C1B22011200F0F750 /* LibraryGirl2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = LibraryGirl2.jpg; path = CVOpenTemplate/LibraryGirl2.jpg; sourceTree = "<group>"; };
+		CEF2BD261B20C9E200F0F750 /* Library1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Library1.jpg; sourceTree = "<group>"; };
+		CEF2BD281B20C9F300F0F750 /* Library2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Library2.jpg; sourceTree = "<group>"; };
+		CEF2BD2A1B22010400F0F750 /* LibraryGirl1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LibraryGirl1.jpg; sourceTree = "<group>"; };
+		CEF2BD2C1B22011200F0F750 /* LibraryGirl2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LibraryGirl2.jpg; sourceTree = "<group>"; };
 		CEF2BD2F1B23603B00F0F750 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		CEF2BD301B23603B00F0F750 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		CEF2BD341B24D17D00F0F750 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
+		CEF2BD361B24D4AB00F0F750 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEF2BD371B24D4AB00F0F750 /* QuartzCore.framework in Frameworks */,
 				AB3B42901694B72D00A78685 /* AVFoundation.framework in Frameworks */,
 				AB3B428E1694B72400A78685 /* CoreVideo.framework in Frameworks */,
 				AB3B428C1694B71C00A78685 /* CoreMedia.framework in Frameworks */,
@@ -125,10 +130,6 @@
 		AB3B424E1694B64A00A78685 = {
 			isa = PBXGroup;
 			children = (
-				CEF2BD2C1B22011200F0F750 /* LibraryGirl2.jpg */,
-				CEF2BD2A1B22010400F0F750 /* LibraryGirl1.jpg */,
-				CEF2BD281B20C9F300F0F750 /* Library2.jpg */,
-				CEF2BD261B20C9E200F0F750 /* Library1.jpg */,
 				ABE81ACF169D22F400F37391 /* README.markdown */,
 				AB3B42631694B64A00A78685 /* CVOpenStitch */,
 				AB3B425C1694B64A00A78685 /* Frameworks */,
@@ -147,6 +148,7 @@
 		AB3B425C1694B64A00A78685 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CEF2BD361B24D4AB00F0F750 /* QuartzCore.framework */,
 				AB3B42911694B73400A78685 /* ImageIO.framework */,
 				AB3B428F1694B72D00A78685 /* AVFoundation.framework */,
 				AB3B428D1694B72400A78685 /* CoreVideo.framework */,
@@ -200,6 +202,7 @@
 		ABDBFA3A1697D8EE007B3D6E /* images */ = {
 			isa = PBXGroup;
 			children = (
+				CEF2BD341B24D17D00F0F750 /* Images.xcassets */,
 				ABDBFA6F1698676B007B3D6E /* images1 */,
 			);
 			name = images;
@@ -208,6 +211,11 @@
 		ABDBFA6F1698676B007B3D6E /* images1 */ = {
 			isa = PBXGroup;
 			children = (
+				CEF2BD331B24D14D00F0F750 /* Buttons */,
+				CEF2BD2C1B22011200F0F750 /* LibraryGirl2.jpg */,
+				CEF2BD2A1B22010400F0F750 /* LibraryGirl1.jpg */,
+				CEF2BD281B20C9F300F0F750 /* Library2.jpg */,
+				CEF2BD261B20C9E200F0F750 /* Library1.jpg */,
 				ABDBFA631697F20C007B3D6E /* pano_19_16_mid.jpg */,
 				ABDBFA3B1697D9D7007B3D6E /* pano_19_25_mid.jpg */,
 				ABDBFA3C1697D9D7007B3D6E /* pano_19_22_mid.jpg */,
@@ -235,6 +243,13 @@
 				CE17A33C1B0D2DA500FB8433 /* CustomImagePickerController.m */,
 			);
 			name = RustleViewControllers;
+			sourceTree = "<group>";
+		};
+		CEF2BD331B24D14D00F0F750 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Buttons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,6 +319,7 @@
 				ABDBFA431697D9DA007B3D6E /* pano_19_20_mid.jpg in Resources */,
 				ABDBFA441697D9DA007B3D6E /* pano_19_25_lo.jpg in Resources */,
 				ABDBFA451697D9DA007B3D6E /* pano_19_22_lo.jpg in Resources */,
+				CEF2BD351B24D17D00F0F750 /* Images.xcassets in Resources */,
 				ABDBFA461697D9DA007B3D6E /* pano_19_20_lo.jpg in Resources */,
 				ABDBFA691697F20F007B3D6E /* pano_19_16_mid.jpg in Resources */,
 				ABE81AD0169D22F400F37391 /* README.markdown in Resources */,

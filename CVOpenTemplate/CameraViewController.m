@@ -13,6 +13,9 @@
 #import "Constants.h"
 #import "SettingsViewController.h"
 
+// Framework imports
+#import <QuartzCore/QuartzCore.h>
+
 // CV imports
 #import "CVViewController.h"
 
@@ -53,8 +56,8 @@ double compressPhotoTo720From2448 = 0.29411764705882;
     UIView *main_overlay_view = [[UIView alloc] initWithFrame:self.view.bounds];
     
     // Set up Camera Button
-    self.HeightOfButtons = 40;
-    CGFloat cameraWidth = self.view.frame.size.width/4;
+    self.HeightOfButtons = self.view.frame.size.width/5;
+    CGFloat cameraWidth = self.view.frame.size.width/5;
     CGFloat cameraX = self.view.frame.size.width/2 - cameraWidth/2;
     CGFloat cameraY = self.view.frame.size.height-self.HeightOfButtons;
     
@@ -72,7 +75,8 @@ double compressPhotoTo720From2448 = 0.29411764705882;
     [cameraButton addTarget:self action:@selector(shootPicture) forControlEvents:UIControlEventTouchUpInside];
     cameraButton.frame = CGRectMake(cameraX, cameraY, cameraWidth, self.HeightOfButtons);
     //button.frame = CGRectMake(self.view.frame.size.width / 2, self.view.frame.size.height - self.HeightOfButtons, self.view.frame.size.width / 4, self.HeightOfButtons);
-    [cameraButton setBackgroundColor:[UIColor redColor]];
+    [cameraButton setBackgroundColor:[UIColor whiteColor]];
+    cameraButton.layer.cornerRadius = cameraButton.bounds.size.width / 2.0;
     [main_overlay_view addSubview:cameraButton];
     
     // Setup table Button
@@ -80,11 +84,13 @@ double compressPhotoTo720From2448 = 0.29411764705882;
     CGFloat tableY = self.view.frame.size.height-self.HeightOfButtons;
     
     // Adding Table Button
-    UIButton *tableButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [tableButton addTarget:self action:@selector(segueToSettingsViewController) forControlEvents:UIControlEventTouchUpInside];
-    tableButton.frame = CGRectMake(tableX, tableY, cameraWidth, self.HeightOfButtons);
-    [tableButton setBackgroundColor:[UIColor blueColor]];// Use BackgroundImage later
-    [main_overlay_view addSubview:tableButton];
+    UIButton *settingsButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [settingsButton addTarget:self action:@selector(segueToSettingsViewController) forControlEvents:UIControlEventTouchUpInside];
+    UIImage *settingsBtnImage = [UIImage imageNamed:@"gear-iconWithStroke"];
+    [settingsButton setImage:settingsBtnImage forState:UIControlStateNormal];
+    settingsButton.frame = CGRectMake(tableX, tableY, cameraWidth, self.HeightOfButtons);
+    [main_overlay_view addSubview:settingsButton];
+    
     
     // Setup panaroma button
     CGFloat panaromaX = self.view.frame.size.width - cameraWidth; // set to some position at far right
@@ -93,9 +99,14 @@ double compressPhotoTo720From2448 = 0.29411764705882;
     // adding panaroma view
     UIButton *panaromaButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [panaromaButton addTarget:self action:@selector(segueToCVImageController) forControlEvents:UIControlEventTouchUpInside];
+    UIImage *stitchingBtnImage = [UIImage imageNamed:@"needle120"];
+    [panaromaButton setImage:stitchingBtnImage forState:UIControlStateNormal];
     panaromaButton.frame = CGRectMake(panaromaX, panaromaY, cameraWidth, self.HeightOfButtons);
-    [panaromaButton setBackgroundColor:[UIColor greenColor]];// Use BackgroundImage later
     [main_overlay_view addSubview:panaromaButton];
+    
+    //    panaromaButton.frame = CGRectMake(panaromaX, panaromaY, cameraWidth, self.HeightOfButtons);
+//    [panaromaButton setBackgroundColor:[UIColor greenColor]];// Use BackgroundImage later
+//    [main_overlay_view addSubview:panaromaButton];
     
     return main_overlay_view;
 }

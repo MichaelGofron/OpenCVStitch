@@ -15,7 +15,7 @@
 
 @implementation CVViewController
 
-- (void)viewDidAppear:(BOOL)animated    
+- (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     [self stitch];
@@ -34,33 +34,38 @@
         // default project images
         
         // NSArray *imageArray = [self returnOrigImageArray];
-
-        // Tested hardcoded images captured using iphone camera and manually added to resource bundle
-//        NSArray *imageArray = [self returnManuallyAddedImageArray];
         
-//        NSArray *imageArray = [self returnAManuallyAddedImageArray];
+        // Tested hardcoded images captured using iphone camera and manually added to resource bundle
+        //        NSArray *imageArray = [self returnManuallyAddedImageArray];
+        
+        //        NSArray *imageArray = [self returnAManuallyAddedImageArray];
         // Dynamic image acquisition with only 2 images allowed
         // Must take two images using the red button at camera screen or program will crash if
         // using the below lines for dynamic image stitching
         
-        NSArray *imageArray = [self returnDynamicallyTakenImageArray];
-        NSLog(@"imageArray = %@",imageArray);
-        UIImage* stitchedImage = [CVWrapper processWithArray:imageArray];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            NSLog (@"stitchedImage %@",stitchedImage);
-            UIImageView* imageView = [[UIImageView alloc] initWithImage:stitchedImage];
-            self.imageView = imageView;
-            [self.scrollView addSubview:imageView];
-            self.scrollView.backgroundColor = [UIColor blackColor];
-            self.scrollView.contentSize = self.imageView.bounds.size;
-            self.scrollView.maximumZoomScale = 4.0;
-            self.scrollView.minimumZoomScale = 0.5;
-            self.scrollView.contentOffset = CGPointMake(-(self.scrollView.bounds.size.width-self.imageView.bounds.size.width)/2, -(self.scrollView.bounds.size.height-self.imageView.bounds.size.height)/2);
-            NSLog (@"scrollview contentSize %@",NSStringFromCGSize(self.scrollView.contentSize));
-            [self.spinner stopAnimating];
-            
-        });
+        if ([self numberOfImagesMatchesSettings]){ // check that number of images matches the settings
+            NSArray *imageArray = [self returnDynamicallyTakenImageArray];
+            NSLog(@"imageArray = %@",imageArray);
+            UIImage* stitchedImage = [CVWrapper processWithArray:imageArray];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                NSLog (@"stitchedImage %@",stitchedImage);
+                UIImageView* imageView = [[UIImageView alloc] initWithImage:stitchedImage];
+                self.imageView = imageView;
+                [self.scrollView addSubview:imageView];
+                self.scrollView.backgroundColor = [UIColor blackColor];
+                self.scrollView.contentSize = self.imageView.bounds.size;
+                self.scrollView.maximumZoomScale = 4.0;
+                self.scrollView.minimumZoomScale = 0.5;
+                self.scrollView.contentOffset = CGPointMake(-(self.scrollView.bounds.size.width-self.imageView.bounds.size.width)/2, -(self.scrollView.bounds.size.height-self.imageView.bounds.size.height)/2);
+                NSLog (@"scrollview contentSize %@",NSStringFromCGSize(self.scrollView.contentSize));
+                [self.spinner stopAnimating];
+                
+            });
+        }else{
+            NSLog(@"Not enough images taken");
+            return;
+        }
     });
 }
 
@@ -89,6 +94,14 @@
             nil];
 }
 
+// determine whether the number of images matches what the settings say
+-(BOOL)numberOfImagesMatchesSettings{
+    NSString* strNumPhotos = [[NSUserDefaults standardUserDefaults]objectForKey:@"NumPhotos"];
+    int numPhotos = (int)[strNumPhotos integerValue];
+    return [self enoughImagesTaken:numPhotos];
+}
+
+
 -(NSArray*)returnDynamicallyTakenImageArray{
     NSString* strNumPhotos = [self initializeNumberOfPhotos];
     int numPhotos = (int)[strNumPhotos integerValue];
@@ -112,8 +125,8 @@
     for (int p = 0; p < Images.count; p++){
         UIImage* LandscapeImage = Images[p];
         UIImage* PortraitImage = [[UIImage alloc] initWithCGImage: LandscapeImage.CGImage
-                                                             scale: 1.0
-                                                       orientation: UIImageOrientationLeft];
+                                                            scale: 1.0
+                                                      orientation: UIImageOrientationLeft];
         [portraitImgs addObject:PortraitImage];
     }
     return portraitImgs;
@@ -122,7 +135,7 @@
 -(UIImage *)retrieveImageFromDefaultsWithKey:(NSString *)objectKey{
     NSString *imagePath = [[NSUserDefaults standardUserDefaults] objectForKey:objectKey];
     UIImage *customImage = [UIImage imageNamed:imagePath];
-//    UIImage *customImage = [UIImage imageWithContentsOfFile:imagePath];
+    //    UIImage *customImage = [UIImage imageWithContentsOfFile:imagePath];
     NSLog(@"customImage == %@",customImage);
     return customImage;
 }
@@ -137,6 +150,16 @@
         [imgs addObject:image];
     }
     return imgs;
+}
+
+-(BOOL)enoughImagesTaken:(int)numPhotos{
+    for (int i = 0; i < numPhotos; i++){
+        NSString *key = [NSString stringWithFormat:@"test%d",i];
+        UIImage *image = [self retrieveImageFromDefaultsWithKey:key];
+        if (!image)
+            return false;
+    }
+    return true;
 }
 
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
