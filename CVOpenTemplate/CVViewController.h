@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CVViewController : UIViewController
+@interface CVViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (nonatomic, weak) IBOutlet UIImageView* imageView;

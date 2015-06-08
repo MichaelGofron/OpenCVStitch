@@ -156,24 +156,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number Of Photos:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fdv-MJ-cjC">
-                                <rect key="frame" x="86" y="72.5" width="148.5" height="20.5"/>
+                                <rect key="frame" x="86" y="72" width="149" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o90-9Q-9Hk">
-                                <rect key="frame" x="0.0" y="101" width="320" height="162"/>
+                                <rect key="frame" x="16" y="101" width="288" height="162"/>
                             </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1C0-Xk-Iga">
+                                <rect key="frame" x="114" y="271" width="93" height="30"/>
+                                <state key="normal" title="Reset Photos">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetPhotos:" destination="GZI-aB-NOT" eventType="touchUpInside" id="H7Z-tg-ruH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="o90-9Q-9Hk" secondAttribute="trailing" constant="-16" id="1cG-Tc-hOm"/>
-                            <constraint firstItem="o90-9Q-9Hk" firstAttribute="leading" secondItem="r8j-9K-TW3" secondAttribute="leadingMargin" constant="-16" id="5Oa-9y-dMK"/>
-                            <constraint firstItem="o90-9Q-9Hk" firstAttribute="top" secondItem="Fdv-MJ-cjC" secondAttribute="bottom" constant="8" id="Xmf-kD-HQP"/>
-                            <constraint firstItem="DYf-Ju-dmc" firstAttribute="top" secondItem="o90-9Q-9Hk" secondAttribute="bottom" constant="305" id="afe-rQ-F3z"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Fdv-MJ-cjC" secondAttribute="trailing" constant="69.5" id="cFa-zk-IRB"/>
-                            <constraint firstItem="Fdv-MJ-cjC" firstAttribute="top" secondItem="WuX-U5-VeM" secondAttribute="bottom" constant="8.5" id="mhb-yV-bwt"/>
-                            <constraint firstItem="Fdv-MJ-cjC" firstAttribute="leading" secondItem="r8j-9K-TW3" secondAttribute="leadingMargin" constant="70" id="yny-oU-Pcp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1C0-Xk-Iga" secondAttribute="trailing" constant="97" id="4ZW-22-Smy"/>
+                            <constraint firstItem="o90-9Q-9Hk" firstAttribute="trailing" secondItem="r8j-9K-TW3" secondAttribute="trailingMargin" id="5BF-Mc-OfF"/>
+                            <constraint firstItem="o90-9Q-9Hk" firstAttribute="top" secondItem="Fdv-MJ-cjC" secondAttribute="bottom" constant="8" id="5aC-ba-KEV"/>
+                            <constraint firstItem="Fdv-MJ-cjC" firstAttribute="leading" secondItem="r8j-9K-TW3" secondAttribute="leadingMargin" constant="70" id="FcW-mX-Oal"/>
+                            <constraint firstItem="o90-9Q-9Hk" firstAttribute="leading" secondItem="r8j-9K-TW3" secondAttribute="leadingMargin" id="HhE-GX-U9l"/>
+                            <constraint firstItem="1C0-Xk-Iga" firstAttribute="top" secondItem="o90-9Q-9Hk" secondAttribute="bottom" constant="8" id="JVa-2l-EPl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Fdv-MJ-cjC" secondAttribute="trailing" constant="69" id="SgE-zZ-Oe2"/>
+                            <constraint firstItem="1C0-Xk-Iga" firstAttribute="leading" secondItem="r8j-9K-TW3" secondAttribute="leadingMargin" constant="98" id="fGc-bi-bS8"/>
+                            <constraint firstItem="Fdv-MJ-cjC" firstAttribute="top" secondItem="WuX-U5-VeM" secondAttribute="bottom" constant="8" id="mLd-1G-vK6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kRU-CK-a6h">

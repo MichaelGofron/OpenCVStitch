@@ -26,14 +26,22 @@
 @property CGFloat CenterConst;
 @end
 
-int photoIndx = 0; // global test variable
 double compressPhotoTo720From2448 = 0.29411764705882;
 
 @implementation CameraViewController
 
 - (void)viewDidLoad {
     if (debug==1) {NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));}
+    [self setDefaultPhotoIndx];
     [super viewDidLoad];
+}
+
+-(void)setDefaultPhotoIndx{
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if (![defaults objectForKey:@"photoIndx"]){
+        [defaults setObject:[[NSNumber alloc]initWithInt:0] forKey:@"photoIndx"];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -183,17 +191,30 @@ double compressPhotoTo720From2448 = 0.29411764705882;
 }
 
 -(void)saveImageToDefaults:(UIImage *)newImage{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
     NSData *imageData = UIImageJPEGRepresentation(newImage,1.0); // Used to be PNG
     
     // creates a list of path strings in the specified directory in the specified domains, if tildes they expand
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0]; // first path string
     
+    int photoIndx = [[defaults objectForKey:@"photoIndx"]intValue];
     NSString *imgKey = [NSString stringWithFormat:@"test%d",photoIndx];
     
     NSString *imagePath =[documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg",imgKey]]; // create path for image by appending strings
-
     
+    [self writeToFileWith:imagePath andData:imageData];
+    
+    NSLog(@"test%d",photoIndx);
+    
+    [defaults setObject:imagePath forKey:imgKey];
+    photoIndx++; // increment photoIndex for next pass
+    [defaults setObject:[[NSNumber alloc]initWithInt:photoIndx] forKey:@"photoIndx"];
+}
+
+-(void)writeToFileWith:(NSString*)imagePath
+               andData:(NSData*)imageData{
     NSLog((@"pre writing to file"));
     if (![imageData writeToFile:imagePath atomically:NO]){
         NSLog((@"Failed to cache image data to disk"));
@@ -201,11 +222,6 @@ double compressPhotoTo720From2448 = 0.29411764705882;
     else{
         NSLog(@"the cachedImagedPath is %@",imagePath);
     }
-    
-    NSLog(@"test%d",photoIndx);
-    
-    [[NSUserDefaults standardUserDefaults] setObject:imagePath forKey:imgKey];
-    photoIndx++; // increment photoIndex for next pass
 }
 
 @end

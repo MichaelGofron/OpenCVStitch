@@ -8,9 +8,12 @@
 
 #import "CVViewController.h"
 #import "CVWrapper.h"
+#import "Constants.h"
+
+const int initialNumPhotos = 4;
 
 @interface CVViewController ()
-
+@property UIImagePickerController *PickerController;
 @end
 
 @implementation CVViewController
@@ -18,6 +21,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+//    [self makeCameraRollAppear];
     [self stitch];
     [self.navigationController.navigationBar setHidden:NO];
 }
@@ -51,6 +55,7 @@
                 
                 NSLog (@"stitchedImage %@",stitchedImage);
                 UIImageView* imageView = [[UIImageView alloc] initWithImage:stitchedImage];
+                UIImageWriteToSavedPhotosAlbum(stitchedImage, nil, nil, nil);
                 self.imageView = imageView;
                 [self.scrollView addSubview:imageView];
                 self.scrollView.backgroundColor = [UIColor blackColor];
@@ -69,6 +74,18 @@
     });
 }
 
+// makes a camera roll and users can select which pictures to take
+- (void)makeCameraRollAppear
+{
+    if (debug==1) {NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));}
+    
+    self.PickerController = [[UIImagePickerController alloc] init];
+    self.PickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    self.PickerController.showsCameraControls = NO;
+    self.PickerController.delegate = self;
+    
+    [self presentViewController:self.PickerController animated:YES completion:NULL];
+}
 
 // Original image array from foundry's stitching repo
 -(NSArray *)returnOrigImageArray{
@@ -114,8 +131,8 @@
     NSString *strNumPhotos = [[NSUserDefaults standardUserDefaults]objectForKey:@"NumPhotos"];
     NSLog(@"%@",strNumPhotos);
     if (!strNumPhotos){ // nothing in user defaults
-        // Set default of 4 photos to stich if there isn't any default defined
-        [[NSUserDefaults standardUserDefaults]setObject:[NSString stringWithFormat:@"%d",4] forKey:@"NumPhotos"];
+        // set default number of photos needed to stitch
+        [[NSUserDefaults standardUserDefaults]setObject:[NSString stringWithFormat:@"%d",initialNumPhotos] forKey:@"NumPhotos"];
     }
     return [[NSUserDefaults standardUserDefaults]objectForKey:@"NumPhotos"];
 }

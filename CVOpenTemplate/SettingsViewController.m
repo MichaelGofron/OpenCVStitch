@@ -41,6 +41,12 @@
 -(void)initializePickerData{
     pickerData = @[@2,@3,@4,@5,@6,@7,@8,@9];
 }
+- (IBAction)resetPhotos:(UIButton *)sender {
+    NSLog(@"resetted photos");
+    NSNumber *photoIndx = [[NSNumber alloc]initWithInt:0];
+    [[NSUserDefaults standardUserDefaults]setObject:photoIndx forKey:@"photoIndx"];
+    
+}
 
 // The number of columns of data
 - (long)numberOfComponentsInPickerView:(UIPickerView *)pickerView
