@@ -45,8 +45,11 @@
 // might want to also remove any instances of previously stitched photos
 - (IBAction)resetPhotos:(UIButton *)sender {
     NSLog(@"resetted photos");
-    NSNumber *photoIndx = [[NSNumber alloc]initWithInt:0];
-    [[NSUserDefaults standardUserDefaults]setObject:photoIndx forKey:@"photoIndx"];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSNumber *photoIndx = [defaults objectForKey:@"photoIndx"];
+    [self removePreviousPhotos:photoIndx];
+    NSNumber *newPhotoIndx = [[NSNumber alloc]initWithInt:0];
+    [[NSUserDefaults standardUserDefaults]setObject:newPhotoIndx forKey:@"photoIndx"];
 }
 
 // test by taking a number of photos, resetting, then stitching
@@ -54,7 +57,8 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     int intPhotoIndx = [photoIndx intValue];
     for (int i = 0; i < intPhotoIndx; i++){
-        [defaults objectForKey:@"photoIndx"];
+        NSString *key = [NSString stringWithFormat:@"test%d",i];
+        [defaults setObject:nil forKey:key]; // reset all objects to nothing
     }
 }
 

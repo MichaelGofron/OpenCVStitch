@@ -82,6 +82,30 @@ const int initialNumPhotos = 4;
     return true;
 }
 
+// Original image array from foundry's stitching repo
+-(NSArray *)returnOrigImageArray{
+    return [NSArray arrayWithObjects:
+            [UIImage imageNamed:@"pano_19_16_mid.jpg"]
+            ,[UIImage imageNamed:@"pano_19_20_mid.jpg"]
+            ,[UIImage imageNamed:@"pano_19_22_mid.jpg"]
+            ,[UIImage imageNamed:@"pano_19_25_mid.jpg"]
+            , nil];
+}
+
+-(NSArray*)returnManuallyAddedImageArray{
+    return [NSArray arrayWithObjects:
+            [UIImage imageNamed:@"Library1.jpg"],
+            [UIImage imageNamed:@"Library2.jpg"],
+            nil];
+}
+
+-(NSArray*)returnAManuallyAddedImageArray{
+    return [NSArray arrayWithObjects:
+            [UIImage imageNamed:@"LibraryGirl1.jpg"],
+            [UIImage imageNamed:@"LibraryGirl2.jpg"],
+            nil];
+}
+
 /*
 #pragma mark - Navigation
 

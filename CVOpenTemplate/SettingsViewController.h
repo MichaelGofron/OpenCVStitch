@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SavingDataViewController.h"
 
-@interface SettingsViewController : UIViewController <UIPickerViewDataSource,UIPickerViewDelegate>
+@interface SettingsViewController : SavingDataViewController <UIPickerViewDataSource,UIPickerViewDelegate>
 
 @end

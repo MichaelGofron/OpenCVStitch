@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SavingDataViewController.h"
 
-@interface CVViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface CVViewController : SavingDataViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (nonatomic, weak) IBOutlet UIImageView* imageView;

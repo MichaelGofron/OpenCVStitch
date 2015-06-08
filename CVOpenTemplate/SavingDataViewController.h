@@ -10,4 +10,7 @@
 
 @interface SavingDataViewController : UIViewController
 
+-(NSArray*)returnDynamicallyTakenImageArray;
+-(BOOL)numberOfImagesMatchesSettings;
+
 @end
