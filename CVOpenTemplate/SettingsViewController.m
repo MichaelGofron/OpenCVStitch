@@ -41,11 +41,21 @@
 -(void)initializePickerData{
     pickerData = @[@2,@3,@4,@5,@6,@7,@8,@9];
 }
+
+// might want to also remove any instances of previously stitched photos
 - (IBAction)resetPhotos:(UIButton *)sender {
     NSLog(@"resetted photos");
     NSNumber *photoIndx = [[NSNumber alloc]initWithInt:0];
     [[NSUserDefaults standardUserDefaults]setObject:photoIndx forKey:@"photoIndx"];
-    
+}
+
+// test by taking a number of photos, resetting, then stitching
+-(void)removePreviousPhotos:(NSNumber*)photoIndx{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    int intPhotoIndx = [photoIndx intValue];
+    for (int i = 0; i < intPhotoIndx; i++){
+        [defaults objectForKey:@"photoIndx"];
+    }
 }
 
 // The number of columns of data

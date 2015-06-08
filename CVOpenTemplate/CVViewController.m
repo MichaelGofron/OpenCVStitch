@@ -74,19 +74,6 @@ const int initialNumPhotos = 4;
     });
 }
 
-// makes a camera roll and users can select which pictures to take
-- (void)makeCameraRollAppear
-{
-    if (debug==1) {NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));}
-    
-    self.PickerController = [[UIImagePickerController alloc] init];
-    self.PickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    self.PickerController.showsCameraControls = NO;
-    self.PickerController.delegate = self;
-    
-    [self presentViewController:self.PickerController animated:YES completion:NULL];
-}
-
 // Original image array from foundry's stitching repo
 -(NSArray *)returnOrigImageArray{
     return [NSArray arrayWithObjects:

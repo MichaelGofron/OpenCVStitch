@@ -27,6 +27,7 @@
 @end
 
 double compressPhotoTo720From2448 = 0.29411764705882;
+const int numberOfImagesUserCanSave = 10;
 
 @implementation CameraViewController
 
@@ -118,7 +119,7 @@ double compressPhotoTo720From2448 = 0.29411764705882;
 -(void)segueToRustlesTableViewController{
     
     if (debug==1) {NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));}
-
+    
     // Instantiate nav controller which segues to table view
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil]; // must assume only IPhone
     RustlesTableViewController *rustlesTVC = (RustlesTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"RustlesNavigation"];
@@ -164,7 +165,7 @@ double compressPhotoTo720From2448 = 0.29411764705882;
     
     UIImage *pickedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     pickedImage = [self compressForUpload:pickedImage scale:compressPhotoTo720From2448];
-//    UIImageWriteToSavedPhotosAlbum(pickedImage, nil, nil, nil);
+    //    UIImageWriteToSavedPhotosAlbum(pickedImage, nil, nil, nil);
     [self saveImageToDefaults:pickedImage];
 }
 
@@ -200,17 +201,19 @@ double compressPhotoTo720From2448 = 0.29411764705882;
     NSString *documentsDirectory = [paths objectAtIndex:0]; // first path string
     
     int photoIndx = [[defaults objectForKey:@"photoIndx"]intValue];
-    NSString *imgKey = [NSString stringWithFormat:@"test%d",photoIndx];
-    
-    NSString *imagePath =[documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg",imgKey]]; // create path for image by appending strings
-    
-    [self writeToFileWith:imagePath andData:imageData];
-    
-    NSLog(@"test%d",photoIndx);
-    
-    [defaults setObject:imagePath forKey:imgKey];
-    photoIndx++; // increment photoIndex for next pass
-    [defaults setObject:[[NSNumber alloc]initWithInt:photoIndx] forKey:@"photoIndx"];
+    if (photoIndx < numberOfImagesUserCanSave){
+        NSString *imgKey = [NSString stringWithFormat:@"test%d",photoIndx];
+        
+        NSString *imagePath =[documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg",imgKey]]; // create path for image by appending strings
+        
+        [self writeToFileWith:imagePath andData:imageData];
+        
+        NSLog(@"test%d",photoIndx);
+        
+        [defaults setObject:imagePath forKey:imgKey];
+        photoIndx++; // increment photoIndex for next pass
+        [defaults setObject:[[NSNumber alloc]initWithInt:photoIndx] forKey:@"photoIndx"];
+    }
 }
 
 -(void)writeToFileWith:(NSString*)imagePath

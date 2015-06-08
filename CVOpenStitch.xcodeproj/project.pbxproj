@@ -47,6 +47,7 @@
 		CEF2BD311B23603B00F0F750 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF2BD301B23603B00F0F750 /* SettingsViewController.m */; };
 		CEF2BD351B24D17D00F0F750 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF2BD341B24D17D00F0F750 /* Images.xcassets */; };
 		CEF2BD371B24D4AB00F0F750 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF2BD361B24D4AB00F0F750 /* QuartzCore.framework */; };
+		CEF2BD3A1B26159C00F0F750 /* SavingDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF2BD391B26159C00F0F750 /* SavingDataViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +105,8 @@
 		CEF2BD301B23603B00F0F750 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		CEF2BD341B24D17D00F0F750 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
 		CEF2BD361B24D4AB00F0F750 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CEF2BD381B26159C00F0F750 /* SavingDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavingDataViewController.h; sourceTree = "<group>"; };
+		CEF2BD391B26159C00F0F750 /* SavingDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavingDataViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +242,8 @@
 				CE17A33D1B0D2DA500FB8433 /* RustlesTableViewController.m */,
 				CEF2BD2F1B23603B00F0F750 /* SettingsViewController.h */,
 				CEF2BD301B23603B00F0F750 /* SettingsViewController.m */,
+				CEF2BD381B26159C00F0F750 /* SavingDataViewController.h */,
+				CEF2BD391B26159C00F0F750 /* SavingDataViewController.m */,
 				CE17A33E1B0D2DA500FB8433 /* CustomImagePickerController.h */,
 				CE17A33C1B0D2DA500FB8433 /* CustomImagePickerController.m */,
 			);
@@ -339,6 +344,7 @@
 				AB3B427D1694B64B00A78685 /* CVViewController.m in Sources */,
 				AB3B42951694B7B600A78685 /* CVWrapper.mm in Sources */,
 				CE17A3421B0D2DA500FB8433 /* RustlesTableViewController.m in Sources */,
+				CEF2BD3A1B26159C00F0F750 /* SavingDataViewController.m in Sources */,
 				CE17A3461B0D2F4200FB8433 /* PhotoCell.m in Sources */,
 				ABDBFA4F1697DFB3007B3D6E /* UIImage+OpenCV.mm in Sources */,
 				CEF2BD311B23603B00F0F750 /* SettingsViewController.m in Sources */,
