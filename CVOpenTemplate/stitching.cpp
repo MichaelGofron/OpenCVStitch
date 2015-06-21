@@ -41,7 +41,7 @@
 //
  
  // this is simple_stitcher.cpp sample distributed with openCV source.
- //adapted by Washe/Foundry for iOS
+ //adapted by Washe/GOF Enterprises for iOS
  // most of the code is redundant, retained for reference only
  M*/
 

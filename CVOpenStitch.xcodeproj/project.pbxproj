@@ -17,7 +17,6 @@
 		AB3B42721694B64B00A78685 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB3B42711694B64B00A78685 /* Default@2x.png */; };
 		AB3B42741694B64B00A78685 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB3B42731694B64B00A78685 /* Default-568h@2x.png */; };
 		AB3B42771694B64B00A78685 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB3B42751694B64B00A78685 /* MainStoryboard_iPhone.storyboard */; };
-		AB3B427A1694B64B00A78685 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB3B42781694B64B00A78685 /* MainStoryboard_iPad.storyboard */; };
 		AB3B427D1694B64B00A78685 /* CVViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3B427C1694B64B00A78685 /* CVViewController.m */; };
 		AB3B42841694B6C500A78685 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3B42831694B6C500A78685 /* opencv2.framework */; };
 		AB3B42861694B6D900A78685 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3B42851694B6D900A78685 /* libz.dylib */; };
@@ -38,7 +37,6 @@
 		ABE81AD0169D22F400F37391 /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = ABE81ACF169D22F400F37391 /* README.markdown */; };
 		CE17A3401B0D2DA500FB8433 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE17A33B1B0D2DA500FB8433 /* CameraViewController.m */; };
 		CE17A3411B0D2DA500FB8433 /* CustomImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE17A33C1B0D2DA500FB8433 /* CustomImagePickerController.m */; };
-		CE17A3421B0D2DA500FB8433 /* RustlesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE17A33D1B0D2DA500FB8433 /* RustlesTableViewController.m */; };
 		CE17A3461B0D2F4200FB8433 /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE17A3451B0D2F4200FB8433 /* PhotoCell.m */; };
 		CEF2BD271B20C9E200F0F750 /* Library1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CEF2BD261B20C9E200F0F750 /* Library1.jpg */; };
 		CEF2BD291B20C9F300F0F750 /* Library2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CEF2BD281B20C9F300F0F750 /* Library2.jpg */; };
@@ -65,7 +63,6 @@
 		AB3B42711694B64B00A78685 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		AB3B42731694B64B00A78685 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		AB3B42761694B64B00A78685 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		AB3B42791694B64B00A78685 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		AB3B427B1694B64B00A78685 /* CVViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CVViewController.h; sourceTree = "<group>"; };
 		AB3B427C1694B64B00A78685 /* CVViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CVViewController.m; sourceTree = "<group>"; };
 		AB3B42831694B6C500A78685 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
@@ -90,9 +87,7 @@
 		ABE81ACF169D22F400F37391 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = SOURCE_ROOT; };
 		CE17A33B1B0D2DA500FB8433 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		CE17A33C1B0D2DA500FB8433 /* CustomImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomImagePickerController.m; sourceTree = "<group>"; };
-		CE17A33D1B0D2DA500FB8433 /* RustlesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RustlesTableViewController.m; sourceTree = "<group>"; };
 		CE17A33E1B0D2DA500FB8433 /* CustomImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomImagePickerController.h; sourceTree = "<group>"; };
-		CE17A33F1B0D2DA500FB8433 /* RustlesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RustlesTableViewController.h; sourceTree = "<group>"; };
 		CE17A3431B0D2F2E00FB8433 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		CE17A3441B0D2F4200FB8433 /* PhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCell.h; sourceTree = "<group>"; };
 		CE17A3451B0D2F4200FB8433 /* PhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCell.m; sourceTree = "<group>"; };
@@ -175,7 +170,6 @@
 				AB3B426C1694B64B00A78685 /* CVAppDelegate.h */,
 				AB3B426D1694B64B00A78685 /* CVAppDelegate.m */,
 				AB3B42751694B64B00A78685 /* MainStoryboard_iPhone.storyboard */,
-				AB3B42781694B64B00A78685 /* MainStoryboard_iPad.storyboard */,
 				AB3B427B1694B64B00A78685 /* CVViewController.h */,
 				AB3B427C1694B64B00A78685 /* CVViewController.m */,
 				AB3B42931694B7B600A78685 /* CVWrapper.h */,
@@ -238,8 +232,6 @@
 				CE17A3431B0D2F2E00FB8433 /* Constants.h */,
 				CE77D29B1B1F9C6D00699B8B /* CameraViewController.h */,
 				CE17A33B1B0D2DA500FB8433 /* CameraViewController.m */,
-				CE17A33F1B0D2DA500FB8433 /* RustlesTableViewController.h */,
-				CE17A33D1B0D2DA500FB8433 /* RustlesTableViewController.m */,
 				CEF2BD2F1B23603B00F0F750 /* SettingsViewController.h */,
 				CEF2BD301B23603B00F0F750 /* SettingsViewController.m */,
 				CEF2BD381B26159C00F0F750 /* SavingDataViewController.h */,
@@ -318,7 +310,6 @@
 				AB3B42721694B64B00A78685 /* Default@2x.png in Resources */,
 				AB3B42741694B64B00A78685 /* Default-568h@2x.png in Resources */,
 				AB3B42771694B64B00A78685 /* MainStoryboard_iPhone.storyboard in Resources */,
-				AB3B427A1694B64B00A78685 /* MainStoryboard_iPad.storyboard in Resources */,
 				ABDBFA411697D9DA007B3D6E /* pano_19_25_mid.jpg in Resources */,
 				ABDBFA421697D9DA007B3D6E /* pano_19_22_mid.jpg in Resources */,
 				ABDBFA431697D9DA007B3D6E /* pano_19_20_mid.jpg in Resources */,
@@ -343,7 +334,6 @@
 				AB3B426E1694B64B00A78685 /* CVAppDelegate.m in Sources */,
 				AB3B427D1694B64B00A78685 /* CVViewController.m in Sources */,
 				AB3B42951694B7B600A78685 /* CVWrapper.mm in Sources */,
-				CE17A3421B0D2DA500FB8433 /* RustlesTableViewController.m in Sources */,
 				CEF2BD3A1B26159C00F0F750 /* SavingDataViewController.m in Sources */,
 				CE17A3461B0D2F4200FB8433 /* PhotoCell.m in Sources */,
 				ABDBFA4F1697DFB3007B3D6E /* UIImage+OpenCV.mm in Sources */,
@@ -370,14 +360,6 @@
 				AB3B42761694B64B00A78685 /* en */,
 			);
 			name = MainStoryboard_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		AB3B42781694B64B00A78685 /* MainStoryboard_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AB3B42791694B64B00A78685 /* en */,
-			);
-			name = MainStoryboard_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -438,6 +420,8 @@
 		AB3B42811694B64B00A78685 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -455,6 +439,8 @@
 		AB3B42821694B64B00A78685 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",

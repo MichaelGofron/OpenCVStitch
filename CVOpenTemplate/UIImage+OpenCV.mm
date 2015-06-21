@@ -3,7 +3,7 @@
 //  OpenCVClient
 //
 //  Created by Washe on 01/12/2012.
-//  Copyright 2012 Washe / Foundry. All rights reserved.
+//  Copyright 2012 Washe / GOF Enterprises. All rights reserved.
 //
 //  Permission is given to use this source code file without charge in any
 //  project, commercial or otherwise, entirely at your risk, with the condition

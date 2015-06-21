@@ -77,7 +77,6 @@
                     <navigationItem key="navigationItem" id="nVs-lA-Sil"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <segue destination="djX-uk-sk2" kind="push" identifier="tableSegue" id="iyb-dC-LNa"/>
                         <segue destination="7fr-KU-Kdt" kind="push" identifier="CVSegue" id="aKf-xQ-IRf"/>
                         <segue destination="GKf-jd-N0V" kind="push" identifier="showSettings" id="vKg-ap-2ab"/>
                     </connections>
@@ -85,63 +84,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dhq-kT-65L" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1640" y="657"/>
-        </scene>
-        <!--Rustles Table View Controller-->
-        <scene sceneID="onh-iz-PX8">
-            <objects>
-                <tableViewController storyboardIdentifier="RustlesView" id="b42-GN-qxV" customClass="RustlesTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="WPn-bo-SGy">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RustleCell" id="0kQ-i9-LH1">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0kQ-i9-LH1" id="ahx-T2-mlz">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="b42-GN-qxV" id="5iS-0F-zNV"/>
-                            <outlet property="delegate" destination="b42-GN-qxV" id="SgB-zX-Rwj"/>
-                        </connections>
-                    </tableView>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="mrQ-ma-7fx">
-                        <barButtonItem key="leftBarButtonItem" title="Camera" id="D86-Mg-k4B">
-                            <connections>
-                                <action selector="segueToCamera:" destination="b42-GN-qxV" id="enL-7F-jft"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wQZ-QZ-Tnd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2598" y="-151"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="cT1-o9-5MP">
-            <objects>
-                <navigationController storyboardIdentifier="RustlesNavigation" automaticallyAdjustsScrollViewInsets="NO" id="djX-uk-sk2" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="GM4-uR-bvz"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hSk-cI-nhO">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="b42-GN-qxV" kind="relationship" relationship="rootViewController" id="zj1-ay-TOj"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CkE-jt-ON6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2165" y="-151"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="LsF-II-7H6">
@@ -200,7 +142,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P1r-V9-pJD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2598" y="519"/>
+            <point key="canvasLocation" x="2600" y="371"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cUR-qc-Mgn">
@@ -256,7 +198,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xFk-TO-SD7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2165" y="519"/>
+            <point key="canvasLocation" x="2165" y="371"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

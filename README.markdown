@@ -1,11 +1,5 @@
 __OpenCV Computer vision with iOS: stitching panoramas__  
 
-This is a very simple iOS/openCV example showing basic use of the Stitcher class. The c++ code is adapted from the c++ samples included with the openCV distribution.  
+This is a new project built off of existing OpenCV technologies to capture a panaroma dynamically
 
-Built with XCode 4.5.2 for iOS 5.1/6.0  
-
-Provides a partial answer to: [Libraries to capture panoramas in iOS 6](http://stackoverflow.com/questions/14062932/libraries-to-capture-panorama-in-ios-6/14064788#14064788) (Stack Overflow)
-
-See also [version 2 - SwiftStitch](https://github.com/foundry/OpenCVSwiftStitch):
-- uses cocoaPods to install OpenCV
-- converted to Swift + ObjC++ + C++
+Developed for IOS to dynamically take multiple images and generate a panaroma style image

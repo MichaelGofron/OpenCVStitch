@@ -3,7 +3,7 @@
 //  CVOpenTemplate
 //
 //  Created by Washe on 05/01/2013.
-//  Copyright (c) 2013 Foundry. All rights reserved.
+//  Copyright (c) 2013 GOF Enterprises. All rights reserved.
 //
 
 #ifndef CVOpenTemplate_Header_h

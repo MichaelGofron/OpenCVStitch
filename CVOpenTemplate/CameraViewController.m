@@ -9,7 +9,6 @@
 // Rustle Imports
 #import "CameraViewController.h"
 #import "CustomImagePickerController.h"
-#import "RustlesTableViewController.h"
 #import "Constants.h"
 #import "SettingsViewController.h"
 
@@ -63,6 +62,7 @@ const int numberOfImagesUserCanSave = 10;
     
     // Main overlay view created
     UIView *main_overlay_view = [[UIView alloc] initWithFrame:self.view.bounds];
+    NSLog(@"self.view.bounds == %@",NSStringFromCGRect(self.view.bounds));
     
     // Set up Camera Button
     self.HeightOfButtons = self.view.frame.size.width/5;
@@ -73,6 +73,8 @@ const int numberOfImagesUserCanSave = 10;
     // Clear view (live camera feed) created and added to main overlay view
     NSLog(@"%f",self.HeightOfButtons);
     UIView *clear_view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    
+    NSLog(@"self.view.frame.size.width == %f, self.view.frame.size.height == %f",self.view.frame.size.width,self.view.frame.size.height);
     clear_view.opaque = NO;
     clear_view.backgroundColor = [UIColor clearColor];
     [main_overlay_view addSubview:clear_view];
@@ -83,47 +85,36 @@ const int numberOfImagesUserCanSave = 10;
     // when a button is touched, CustomImagePickerController snaps a picture
     [cameraButton addTarget:self action:@selector(shootPicture) forControlEvents:UIControlEventTouchUpInside];
     cameraButton.frame = CGRectMake(cameraX, cameraY, cameraWidth, self.HeightOfButtons);
-    //button.frame = CGRectMake(self.view.frame.size.width / 2, self.view.frame.size.height - self.HeightOfButtons, self.view.frame.size.width / 4, self.HeightOfButtons);
     [cameraButton setBackgroundColor:[UIColor whiteColor]];
     cameraButton.layer.cornerRadius = cameraButton.bounds.size.width / 2.0;
     [main_overlay_view addSubview:cameraButton];
     
-    // Setup table Button
-    CGFloat tableX = 0;
-    CGFloat tableY = self.view.frame.size.height-self.HeightOfButtons;
+    // Setup settings Button
+    CGFloat settingsX = 0;
+    CGFloat settingsY = self.view.frame.size.height-self.HeightOfButtons;
     
-    // Adding Table Button
+    // Adding Settings Button
     UIButton *settingsButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [settingsButton addTarget:self action:@selector(segueToSettingsViewController) forControlEvents:UIControlEventTouchUpInside];
     UIImage *settingsBtnImage = [UIImage imageNamed:@"gear-iconWithStroke"];
     [settingsButton setImage:settingsBtnImage forState:UIControlStateNormal];
-    settingsButton.frame = CGRectMake(tableX, tableY, cameraWidth, self.HeightOfButtons);
+    settingsButton.frame = CGRectMake(settingsX, settingsY, cameraWidth, self.HeightOfButtons);
     [main_overlay_view addSubview:settingsButton];
     
     
-    // Setup panaroma button
-    CGFloat panaromaX = self.view.frame.size.width - cameraWidth; // set to some position at far right
-    CGFloat panaromaY = tableY; // set to same as the table Button
+    // Setup stitching button
+    CGFloat stitchingX = self.view.frame.size.width - cameraWidth; // set to some position at far right
+    CGFloat stitchingY = settingsY; // set to same as the table Button, we should set the stitching y to be on equal level
     
-    // adding panaroma view
-    UIButton *panaromaButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [panaromaButton addTarget:self action:@selector(segueToCVImageController) forControlEvents:UIControlEventTouchUpInside];
-    UIImage *stitchingBtnImage = [UIImage imageNamed:@"needle120"];
-    [panaromaButton setImage:stitchingBtnImage forState:UIControlStateNormal];
-    panaromaButton.frame = CGRectMake(panaromaX, panaromaY, cameraWidth, self.HeightOfButtons);
-    [main_overlay_view addSubview:panaromaButton];
+    // adding stitching view
+    UIButton *stitchingButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [stitchingButton addTarget:self action:@selector(segueToCVImageController) forControlEvents:UIControlEventTouchUpInside];
+    UIImage *stitchingBtnImage = [UIImage imageNamed:@"sNeedle120"];
+    [stitchingButton setImage:stitchingBtnImage forState:UIControlStateNormal];
+    stitchingButton.frame = CGRectMake(stitchingX, stitchingY, cameraWidth, self.HeightOfButtons);
+    [main_overlay_view addSubview:stitchingButton];
     
     return main_overlay_view;
-}
-
--(void)segueToRustlesTableViewController{
-    
-    if (debug==1) {NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));}
-    
-    // Instantiate nav controller which segues to table view
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil]; // must assume only IPhone
-    RustlesTableViewController *rustlesTVC = (RustlesTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"RustlesNavigation"];
-    [self.PickerController presentViewController:rustlesTVC animated:YES completion:nil];
 }
 
 -(void)segueToSettingsViewController{

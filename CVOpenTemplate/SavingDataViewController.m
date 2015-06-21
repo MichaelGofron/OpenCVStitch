@@ -3,7 +3,7 @@
 //  CVOpenStitch
 //
 //  Created by Mike on 6/8/15.
-//  Copyright (c) 2015 foundry. All rights reserved.
+//  Copyright (c) 2014 GOF Enterprises. All rights reserved.
 //
 
 #import "SavingDataViewController.h"
@@ -67,7 +67,7 @@ const int initialNumPhotos = 4;
         NSString *key = [NSString stringWithFormat:@"test%d",i];
         NSLog(@"test%d",i);
         UIImage *image = [self retrieveImageFromDefaultsWithKey:key];
-        [imgs addObject:image];
+        [imgs addObject:image]; // app crashes here on first load
     }
     return imgs;
 }
